@@ -1,39 +1,36 @@
-#part1
-to run a docker container  
-docker run -d --name csvserver infracloudio/csvserver:latest
+#Part I: Running csvserver with Docker
 
+1. Pull the Docker Image in machine 
+   
+   docker pull infracloudio/csvserver:latest
 
-Check if it is running
-docker ps 
+2. Run the Container in the Background
+   docker run -d --name csvserver infracloudio/csvserver:latest
 
-To check the docker logs
-docker logs csvserver
+3. Check if the Container is Running
+   docker ps
 
+4. If it fails, check logs:
+   docker logs csvserver
 
-error message:
- error while reading the file "/csvserver/inputdata": no such file or directory
+ERROR Message: error while reading the file "/csvserver/inputdata": no such file or directory
 
+5. Create gencsv.sh Script
 
+6. Run gencsv.sh to Generate inputFile
+   ./gencsv.sh 2 8
 
-create gencsv.sh file
+7. Run the Container with inputFile
+   docker run -d --name csvserver -v "$(pwd)/inputFile:/csvserver/inputFile" infracloudio/csvserver:latest
 
-chmod +x gencsv.sh
+8. Get Shell Access and Check Application Port
+   docker exec -it csvserver /bin/sh
 
-./gencsv.sh 2 8
+   container port : 9300
 
+9. Run the Container with Environment Variable
+   docker run -d --name csvserver -p 9393:9300 -v "$(pwd)/inputFile:/csvserver/inputFile" -e CSVSERVER_BORDER=Orange infracloudio/csvserver:latest
 
-
-Check port on which docker continer is listing
-
-Port : 9300
-
-docker stop csvserver
-docker rm csvserver
-
-
-
-final step:
-
-docker run -d --name csvserver -v "$(pwd)/inputFile:/csvserver/inputdata" -p 9393:9300 -e CSVSERVER_BORDER=Orange infracloudio/csvserver:latest
-
+10. Access Application
+   Access the application at http://localhost:939
 
