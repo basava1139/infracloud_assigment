@@ -12,7 +12,7 @@ services:
       - csvserver.env
     volumes:
       - ./inputFile:/csvserver/inputdata
-    restart: always
+    
 
   prometheus:
     image: prom/prometheus:v2.45.2
