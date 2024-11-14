@@ -32,5 +32,5 @@ ERROR Message: error while reading the file "/csvserver/inputdata": no such file
    docker run -d --name csvserver -p 9393:9300 -v "$(pwd)/inputFile:/csvserver/inputFile" -e CSVSERVER_BORDER=Orange infracloudio/csvserver:latest
 
 10. Access Application
-   Access the application at http://localhost:939
+   Access the application at http://localhost:9393
 
