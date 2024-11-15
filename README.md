@@ -5,7 +5,7 @@
    docker pull infracloudio/csvserver:latest
 
 2. Run the Container in the Background
-   docker run -d --name csvserver infracloudio/csvserver:latest
+    docker run -d --name csvserver infracloudio/csvserver:latest
 
 3. Check if the Container is Running
    docker ps
