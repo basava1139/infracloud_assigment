@@ -33,4 +33,6 @@ ERROR Message: error while reading the file "/csvserver/inputdata": no such file
 
 10. Access Application
    Access the application at http://localhost:9393
+                             http://13.60.238.109:9393/ --- url for Application
+                             http://13.60.238.109:9090/ --- url for Prometheus
 
